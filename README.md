@@ -113,7 +113,7 @@ Dashboard dapat diakses melalui instance Metabase yang disertakan dalam file `me
 
 Kredensial login Metabase:
 
-- **Email:** `bagoespp@gmail.com`
+- **Email:** ``
 - **Password:** `Root123`
 
 ## Menjalankan Sistem Machine Learning
@@ -189,7 +189,7 @@ Prototype menerima informasi mahasiswa dan menghasilkan prediksi status:
 Prototype juga menampilkan probabilitas prediksi untuk masing-masing status.
 
 **Akses prototype Streamlit:**  
-`[ISI LINK STREAMLIT SETELAH DEPLOYMENT]`
+`https://proyek-akhir-jaya-jaya-institut-aeljf9majxps4lecsgbkdm.streamlit.app/`
 
 ## Conclusion
 
