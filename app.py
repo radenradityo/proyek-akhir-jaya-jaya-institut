@@ -379,39 +379,33 @@ if st.button("Predict Student Status"):
     prediction = model.predict(input_data)[0]
     probabilities = model.predict_proba(input_data)[0]
 
-    st.success(f"Predicted Status: {prediction}")
-
-    if prediction == "Dropout":
+    if prediction == 1:
         st.warning(
             "The model identifies this student as having "
-            "the highest predicted probability of Dropout. "
-            "This result can be used as an early warning for "
-            "further academic support."
+            "a higher predicted probability of Dropout. "
+            "This result can be used as an early warning "
+            "for further academic support."
         )
-
-    elif prediction == "Enrolled":
-        st.info(
-            "The model identifies this student as having "
-            "the highest predicted probability of remaining Enrolled."
-        )
-
     else:
         st.success(
             "The model identifies this student as having "
-            "the highest predicted probability of Graduating."
+            "a higher predicted probability of Graduating."
         )
+
+    st.subheader("Prediction Result")
+
+    if prediction == 1:
+        st.write("**Predicted Status: Dropout**")
+    else:
+        st.write("**Predicted Status: Graduate**")
 
     st.subheader("Prediction Probability")
 
-    dropout_probability = probabilities[0] * 100
-    enrolled_probability = probabilities[1] * 100
-    graduate_probability = probabilities[2] * 100
-
-    st.write(f"**Dropout:** {dropout_probability:.2f}%")
-    st.progress(float(probabilities[0]))
-
-    st.write(f"**Enrolled:** {enrolled_probability:.2f}%")
-    st.progress(float(probabilities[1]))
+    graduate_probability = probabilities[0] * 100
+    dropout_probability = probabilities[1] * 100
 
     st.write(f"**Graduate:** {graduate_probability:.2f}%")
-    st.progress(float(probabilities[2]))
+    st.progress(float(probabilities[0]))
+
+    st.write(f"**Dropout:** {dropout_probability:.2f}%")
+    st.progress(float(probabilities[1]))
